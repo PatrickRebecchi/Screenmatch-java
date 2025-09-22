@@ -16,8 +16,13 @@ public class BancoP7 {
                 "Dados iniciais do cliente:\n" +
                 "\n" +
                 "Nome: " + nome +"\n" +
+<<<<<<< HEAD
                 "Tipo conta: " +tipoDeConta +"\n" +
                 "Saldo inicial: " +saldo +"\n" +
+=======
+                "Tipo conta: Corrente\n" +
+                "Saldo inicial: R$ 2500,00\n" +
+>>>>>>> 7e395d0e73f0025e894b5abeba62982f13b07766
                 "***********************");
 
         while (opcao != 4) {
@@ -38,6 +43,7 @@ public class BancoP7 {
                 System.out.println("Informe o valor a receber: ");
                 valorAReceber = sc.nextDouble();
                 saldo += valorAReceber;
+<<<<<<< HEAD
                 System.out.println("Novo saldo: " + saldo);
             } else if (opcao == 3) {
                 System.out.println("Informe o valor que deseja transferir: ");
@@ -48,6 +54,12 @@ public class BancoP7 {
                     saldo -= valorATranferir;
                     System.out.println("Novo saldo: " + saldo);
                 }
+=======
+            } else if (opcao == 3) {
+                System.out.println("Informe o valor que deseja transferir: ");
+                valorATranferir = sc.nextDouble();
+                saldo -= valorATranferir;
+>>>>>>> 7e395d0e73f0025e894b5abeba62982f13b07766
             } else if (opcao == 4) {
             System.out.println("Saindo...");
             } else {
