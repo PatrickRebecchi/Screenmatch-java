@@ -1,3 +1,4 @@
+import br.com.alura.screenmatch.calculos.CalculoraDeTempo;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
@@ -19,11 +20,21 @@ public class Principal {
         Serie lost = new Serie();
         lost.setNome("Lost");
         lost.setAnoDeLancamento(2010);
-        lost.setMinutosPorEpisodio(31);
-        lost.setTemporadas(6);
-        lost.setEpisodioPorTemporada(11);
+        lost.setMinutosPorEpisodio(38);
+        lost.setTemporadas(9);
+        lost.setEpisodioPorTemporada(15);
         lost.exibeFichaTecnica();
+        Filme meuFilme1 = new Filme();
+        meuFilme1.setNome("O poderoso chefão");
+        meuFilme1.setAnoDeLancamento(1970); // antes era meuFilme.anoDeLancamento = 1970;
+        meuFilme1.setDuracaoEmMinutos(150);
 
+        CalculoraDeTempo c1 = new CalculoraDeTempo();
+
+        c1.inclui(meuFilme);
+        c1.inclui(meuFilme1);
+        c1.inclui(lost);
+        System.out.println(c1.getTempoTotal());
 
 
 
