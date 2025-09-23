@@ -37,4 +37,5 @@ public class Serie extends Titulo{
         System.out.println("Ano de lançamento: " + getAnoDeLancamento());
         System.out.println("total de minutos: "+ getDuracaoEmMinutos());
     }
+
 }
