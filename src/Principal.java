@@ -4,6 +4,8 @@ import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
     public static void main(String[] args) {
         Filme meuFilme = new Filme();
@@ -27,8 +29,8 @@ public class Principal {
         lost.setEpisodioPorTemporada(15);
         lost.exibeFichaTecnica();
         Filme meuFilme1 = new Filme();
-        meuFilme1.setNome("O poderoso chefão");
-        meuFilme1.setAnoDeLancamento(1970); // antes era meuFilme.anoDeLancamento = 1970;
+        meuFilme1.setNome("Super Man");
+        meuFilme1.setAnoDeLancamento(2010); // antes era meuFilme.anoDeLancamento = 1970;
         meuFilme1.setDuracaoEmMinutos(150);
 
         CalculoraDeTempo c1 = new CalculoraDeTempo();
@@ -52,5 +54,23 @@ public class Principal {
         episodio.setSerie(lost);
         episodio.setTotalVisualizacoes(340);
         filtro.filtra(episodio);
+
+        var filmePatrick = new Filme();
+        filmePatrick.setNome("Dogville");
+        filmePatrick.setAnoDeLancamento(2003);
+        filmePatrick.setDuracaoEmMinutos(200);
+        filmePatrick.avalia(9);
+
+        ArrayList<Filme> filmes = new ArrayList<>();
+
+        filmes.add(filmePatrick);
+        filmes.add(meuFilme1);
+       filmes.add(meuFilme);
+
+        System.out.println("Total de fime assistindo " + filmes.size());
+        System.out.println("Primeiro filme " + filmes.get(0).getNome());
+        System.out.println(filmes);
+
+
     }
 }
