@@ -1,12 +1,10 @@
-import br.com.alura.screenmatch.calculos.CalculoraDeTempo;
-import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
-import br.com.alura.screenmatch.modelos.Episodio;
+package br.com.alura.screenmatch.principal;
+
 import br.com.alura.screenmatch.modelos.Filme;
-import br.com.alura.screenmatch.modelos.Serie;
 
 import java.util.ArrayList;
 
-/*public class Principal {
+/*public class br.com.alura.screenmatch.principal.Principal {
     public static void main(String[] args) {
         Filme meuFilme = new Filme("O poderoso chefão", 1970);
         //meuFilme.setNome("O poderoso chefão");

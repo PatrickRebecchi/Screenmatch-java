@@ -42,4 +42,8 @@ public class Serie extends Titulo{
         System.out.println("total de minutos: "+ getDuracaoEmMinutos());
     }
 
+    @Override
+    public String toString() {
+        return "Serie: " + getNome() + " ("+ getAnoDeLancamento() +")";
+    }
 }
