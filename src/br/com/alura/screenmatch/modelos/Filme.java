@@ -6,7 +6,12 @@ import java.util.ArrayList;
 
 public class Filme extends  Titulo implements Classificavel {
 
+    public Filme(String nome, int anoDeLancamento) {
+        super(nome, anoDeLancamento);
+    }
+
     private String diretor;
+
     public String getDiretor() {
         return diretor;
     }
@@ -22,10 +27,6 @@ public class Filme extends  Titulo implements Classificavel {
 
     @Override
     public String toString() {
-        return "Filme {" +
-                "nome='" + getNome() + '\'' +
-                ", ano=" + getAnoDeLancamento() +
-                // outros atributos
-                '}';
+        return "Filme: " + getNome() + " ("+ getAnoDeLancamento() +")";
     }
 }
