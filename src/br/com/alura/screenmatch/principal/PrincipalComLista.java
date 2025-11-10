@@ -8,6 +8,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 
 
 public class PrincipalComLista {
@@ -19,24 +20,24 @@ public class PrincipalComLista {
         Filme filme3 = new Filme("Dogville", 2003);
         filme3.avalia(8);
         Serie lost = new Serie ("Lost", 2000);
+        Serie chaves = new Serie("Chaves",  1980);
 
         ArrayList<Titulo> lista = new ArrayList<>();
         lista.add(filme1);
         lista.add(filme2);
         lista.add(filme3);
+        lista.add(chaves);
         lista.add(lost);
+        Collections.sort(lista);
         for (Titulo item: lista) {
-            System.out.println(item);
-            if (item instanceof Filme filme) {
-
-                System.out.println("Classificacão: " + filme.getClassificacao());
-            }
+           System.out.println(item);
+           if (item instanceof Filme filme) {
+               System.out.println("Classificacão: " + filme.getClassificacao());
+          }
         }
 
 
-
-        
-        //System.out.println(lista.size());
-
     }
 }
+
+
