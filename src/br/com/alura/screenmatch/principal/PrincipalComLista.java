@@ -5,10 +5,7 @@ import br.com.alura.screenmatch.modelos.Serie;
 import br.com.alura.screenmatch.modelos.Titulo;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 
 public class PrincipalComLista {
@@ -22,7 +19,7 @@ public class PrincipalComLista {
         Serie lost = new Serie ("Lost", 2000);
         Serie chaves = new Serie("Chaves",  1980);
 
-        ArrayList<Titulo> lista = new ArrayList<>();
+        List<Titulo> lista = new LinkedList<>();
         lista.add(filme1);
         lista.add(filme2);
         lista.add(filme3);
