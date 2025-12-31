@@ -8,14 +8,19 @@ public class Titulo implements Comparable<Titulo>{
         this.nome = nome;
         this.anoDeLancamento = anoDeLancamento;
     }
-    @SerializedName("Title")
+
     private String nome;
-    @SerializedName("Year")
     private int anoDeLancamento;
     private boolean incluidoNoPlano;
     private double somaDasAvaliacoes;
     private int totalDeAvaliacoes;
     private int duracaoEmMinutos;
+
+    public Titulo(TituloOmdb meuTituloOmdb) {
+        this.nome = meuTituloOmdb.Title();
+        this.anoDeLancamento = Integer.valueOf(meuTituloOmdb.year().substring(0, 4));
+        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 2));
+    }
 
     public String getNome() {
         return nome;
@@ -90,7 +95,7 @@ public class Titulo implements Comparable<Titulo>{
     @Override
     public String toString() {
         return "nome='" + nome + '\'' +
-                ", anoDeLancamento=" + anoDeLancamento +
-                '}';
+                ", anoDeLancamento=" + anoDeLancamento + '\'' +
+                ", Tempo de duracao=" + duracaoEmMinutos + '\'';
     }
 }
