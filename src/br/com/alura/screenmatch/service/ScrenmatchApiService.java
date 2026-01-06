@@ -13,45 +13,29 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ScrenmatchApiService {
+
     public Titulo buscarTitulo(String titulo) throws IOException, InterruptedException {
-        String endereco = "https://www.omdbapi.com/?t="+ titulo.replace(" ", "+") + "&apikey=225a676f";
-        try {
-            HttpClient client = HttpClient.newHttpClient();
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(endereco))
-                    .build();
 
-            HttpResponse<String> response = client
-                    .send(request, HttpResponse.BodyHandlers.ofString());
+        String endereco = "https://www.omdbapi.com/?t=" + titulo.replace(" ", "+") + "&apikey=225a676f";
 
-            String json = response.body();
-            System.out.println(json);
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(endereco))
+                .build();
 
-            Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
-            TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
-            System.out.println(meuTituloOmdb);
-            //try {
-            Titulo meuTitulo = new Titulo(meuTituloOmdb);
-            System.out.println("Titulo convertido");
-            System.out.println(meuTitulo);
-            System.out.println("( 200 )");
+        HttpResponse<String> response = client
+                .send(request, HttpResponse.BodyHandlers.ofString());
 
-            FileWriter escrita = new FileWriter("filmes.txt");
-            escrita.write(meuTitulo.toString());
-            escrita.close();
+        Gson gson = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .create();
 
-        } catch (NumberFormatException e) {
-            System.out.println("Aconteceu um erro");
-            System.out.println(e.getMessage());
-            System.out.println("teste 02");
-        } catch (IllegalArgumentException e) {
-            System.out.println("Algum erro de argumento na busca, verifique o endereco");
-        }catch (ErroDeConversaoDeAnoException e) {
-            System.out.println(e.getMessage());
-        }System.out.print("Programa finalizado");
+        TituloOmdb tituloOmdb = gson.fromJson(response.body(), TituloOmdb.class);
 
-        return null;
+        return new Titulo(tituloOmdb);
     }
 }
