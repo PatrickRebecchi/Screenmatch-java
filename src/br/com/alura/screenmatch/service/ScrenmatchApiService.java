@@ -36,6 +36,8 @@ public class ScrenmatchApiService {
 
         TituloOmdb tituloOmdb = gson.fromJson(response.body(), TituloOmdb.class);
 
+
+
         return new Titulo(tituloOmdb);
     }
 }
